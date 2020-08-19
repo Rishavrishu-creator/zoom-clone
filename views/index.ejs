@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+         const ROOM_ID  = "<%= roomId %>";
+     </script>
+
+     <div class="main">
+       <div class="main__left">
+            <div class="main_videos">
+                <div id="video-grid">
+                        <video class="vv" playsInline autoplay>
+
+                        </video>
+                        <video class="vv1" playsInline autoplay>
+                            
+                        </video>
+                </div>
+
+            </div>
+            <div class="main__controls">
+                <div class="main_controls_block">
+                   <div class="main_controls_button main_mute_button" onclick="mute()">
+                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                       <span>
+                           Mute
+                       </span>
+                   </div>
+                   <div class="main_controls_button main_video_button" onclick="stopVideo()">
+                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                    <span>
+                        Stop Video
+                    </span>
+                </div>
+                </div>
+
+                <div class="main_controls_block">
+                    <div class="main_controls_button">
+                        <i class='fa fa-shield-alt'></i>
+                        <span>
+                            Security
+                        </span>
+                    </div>
+                    <div class="main_controls_button">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                     <span class="aa">
+                         Participants
+                     </span>
+                 </div>
+                 <div class="main_controls_button">
+                    <i class='fas fa-comment-alt'></i>
+                    <span class="ww">
+                        Chat
+                    </span>
+                </div>
+                 </div>
+
+                 <div class="main_controls_block">
+                
+                    <div class="main_controls_button">
+                     
+                     <span class="ss">
+                         Leave Meeting
+                     </span>
+                 </div>
+                 </div>
+
+
+            </div>
+
+       </div>
+       <div class="main__right">
+           <div class="main_header">
+               <h2>Chats</h2>
+           </div>
+           <div class="main_chat_window">
+               <ul class="messages">
+
+               </ul>
+           </div>
+           <div class="main_message_container">
+               <input type="text" placeholder="Enter your message" id="chat_message" autocomplete="off" required>
+               <button type="submit" id="chat_button" class="btn btn-success">Send</button>
+           </div>
+       </div>
+
+     </div>
+    <script src="script.js"></script>
+</body>
+</html>
