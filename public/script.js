@@ -6,7 +6,7 @@ window.onload=function()
      name = prompt("Enter your name please");
     }
 
-var socket = io.connect("http://rishavclone.herokuapp.com")
+var socket = io.connect("https://evening-cliffs-15487.herokuapp.com")
 var peer = new Peer(undefined,{
     path:'/peerjs',
     host:'/',
