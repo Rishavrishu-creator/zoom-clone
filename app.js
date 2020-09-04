@@ -65,7 +65,7 @@ io.on('connection',function(socket){
             {
                 array2=[]
                 array1=[]
-                
+                array=[]
             }
             console.log(roomId)
             socket.to(roomId).broadcast.emit('user-disconnected', roomId)
