@@ -25,15 +25,52 @@ app.get('/:room',function(req,res){
     res.render("index",{'roomId':req.params.room})
     
 })
-
+var array=[]
+var array2=[]
 io.on('connection',function(socket){
+    console.log("Socket id :"+ socket.id)
+    socket.on('give-data',function(data){
+        array.push(socket.id)
+        array2.push(socket.id)
+        data.socket_id=socket.id;
+        data.participants=array;
+        console.log(data)
+        io.emit('message', data);
+    })
     socket.on('join-room',function(roomId){
+    
+        
         socket.join(roomId);
-        socket.to(roomId).broadcast.emit('user-connected',roomId);
-
+       
+        socket.to(roomId).broadcast.emit('user-connected',roomId)
+         
         socket.on('chat-message',function(data){
+            
             io.to(roomId).emit("chatts",data)
         })
+        socket.on('disconnect', () => {
+            var array1=[]
+            for(var i=0;i<array2.length;i++)
+            {
+                if(array2[i]==socket.id)
+                {
+                    array2.splice(i,1)
+                    break
+                }
+            }
+            
+            array1.push(socket.id)
+            roomId.removed=array1
+            if(array2.length==0)
+            {
+                array2=[]
+                array1=[]
+                array=[]
+            }
+            console.log(roomId)
+            socket.to(roomId).broadcast.emit('user-disconnected', roomId)
+          })
+          
     })
     
 })
