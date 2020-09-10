@@ -3,7 +3,7 @@ var array=[]
 var c=0;
 window.onload=function()
 {
-     name = prompt("Enter your name please");
+     name = prompt("Enter your name");
     }
 
 var socket = io.connect("https://rishav-video-call.herokuapp.com")
