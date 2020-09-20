@@ -27,14 +27,17 @@ app.get('/:room',function(req,res){
 })
 var array=[]
 var array2=[]
+var names = []
 io.on('connection',function(socket){
     console.log("Socket id :"+ socket.id)
     socket.on('give-data',function(data){
         array.push(socket.id)
         array2.push(socket.id)
+        names.push(data.name)
         data.socket_id=socket.id;
         data.participants=array;
-        console.log(data)
+        data.names=names
+        
         io.emit('message', data);
     })
     socket.on('join-room',function(roomId){

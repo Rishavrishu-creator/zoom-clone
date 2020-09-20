@@ -1,5 +1,6 @@
 var name;
 var array=[]
+var names = []
 var c=0;
 window.onload=function()
 {
@@ -90,11 +91,12 @@ peer.on('open',function(id){
      array=[]
      socket.emit('give-data',{
         roomId:ROOM_ID,
-        check:id
+        check:id,
+        name:name
      })
      socket.on('message',function(data){
          array.push(data)
-         console.log(array)
+        
          renderData()
          
      })
@@ -109,9 +111,9 @@ function renderData()
 {
     document.querySelector(".uul").innerHTML=""
          var html1=''
-         for(var i=0;i<array[array.length-1].participants.length;i++)
+         for(var i=0;i<array[array.length-1].names.length;i++)
      {
-        html1="<li>"+array[array.length-1].participants[i]+"</li>"
+        html1="<li>"+array[array.length-1].names[i]+"</li>"
         document.querySelector(".uul").innerHTML+=html1
      }
 }
