@@ -25,6 +25,7 @@ app.get('/:room',function(req,res){
     
 })
 app.get('/private',function(req,res){
+    console.log("Chekkkkk")
     res.redirect('/private'+uuidv4())
 })
 app.get('/private/:id',function(req,res){
