@@ -134,7 +134,7 @@ function renderData()
          for(var i=0;i<array[array.length-1].names.length;i++)
      {
        
-        html1="<a href='/private'><li id="+array[array.length-1].participants[i]+">"+array[array.length-1].names[i]+"</li></a>"
+        html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat("+i+")'>"+array[array.length-1].names[i]+"</li>"
         document.querySelector(".uul").innerHTML+=html1
         
 
@@ -163,6 +163,8 @@ function startChat(a){
           
         }
     }
+    
+
 }
 socket.on('message-sent',function(data){
 
