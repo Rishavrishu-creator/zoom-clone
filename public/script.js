@@ -143,18 +143,16 @@ function renderData()
 
 function startChat(a){
     modal.style.display="none"
-    var finalhtml=''
+    
     document.getElementById("myModal1").style.display="block"
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
     var sender_id = array[array.length-1].participants[a]
-    finalhtml="<ol class='uul1' id="+sender_id+">"
     document.getElementById("chat_button1").onclick=function()
     {
         var mess = document.getElementById("chat_message1").value
         document.getElementById("chat_message1").value=""
-        finalhtml+="<li><strong>"+name+"</strong><br>"+mess+"</li>"
-        finalhtml+="</ol>"
-        document.getElementById("chh").innerHTML=finalhtml
+        html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
+    document.querySelector(".uul1").innerHTML+=html1;
         if(mess!=null)
         {
             socket.emit("private-message",{
@@ -165,7 +163,6 @@ function startChat(a){
           
         }
     }
-   
     document.getElementById('chat_message1').onkeydown = function(e){
         if(e.keyCode == 13){
             var a = document.getElementById("chat_message1").value;
@@ -184,11 +181,9 @@ function startChat(a){
     }
 }
 socket.on('message-sent',function(data){
-    var finalhtml=''
-    finalhtml="<ol class='uul1' id="+data.received_from+">"
-    finalhtml+="<li><strong>"+data.identity+"</strong><br>"+data.message+"</li>"
-    finalhtml+="</ol>"
-    document.getElementById("chh").innerHTML=finalhtml
+
+    html1="<li><strong>"+data.identity+"</strong><br>"+data.message+"</li>"
+    document.querySelector(".uul1").innerHTML+=html1;
     document.getElementById("chat_message1").value=""
 
 })
