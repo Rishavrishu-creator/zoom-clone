@@ -135,7 +135,7 @@ function renderData()
 {
     document.querySelector(".uul").innerHTML=""
          var html1=''
-         console.log(array[array.length-1].names.length+"Checkinggggggg")
+         
          for(var i=0;i<array[array.length-1].names.length;i++)
      {
         if(array[array.length-1]["current"]==array[array.length-1].participants[i])
