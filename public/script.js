@@ -137,8 +137,9 @@ function renderData()
 }
 
 function startChat(a){
-    alert(a)
-  console.log(a)
+    modal.style.display="none"
+    document.getElementById("myModal1").style.display="block"
+    
   
 }
 
