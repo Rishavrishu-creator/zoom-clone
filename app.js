@@ -51,7 +51,7 @@ io.on('connection',function(socket){
             io.to(roomId).emit("chatts",data)
         })
         socket.on("private-message",function(data){
-            io.to(data).emit("message-sent",data);
+            io.to(data.sender).emit("message-sent",data);
         })
 
         socket.on('disconnect', () => {
