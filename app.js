@@ -36,10 +36,9 @@ io.on('connection',function(socket){
         data.socket_id=socket.id;
         data.participants=array;
         data.names=names
-        if(!data.current)
-        {
+        
             data.current=socket.id
-        }
+        
         io.emit('message', data);
     })
     socket.on('join-room',function(roomId){
