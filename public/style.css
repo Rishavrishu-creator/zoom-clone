@@ -32,8 +32,7 @@ body{
     overflow-y: scroll;
     
 }
-
-input[type=text]{
+#chat_message{
     padding: 8px;
     width: 170px;
     margin-bottom: 5px;
@@ -42,6 +41,17 @@ input[type=text]{
     border:2px solid black;
 
 }
+#chat_message1{
+    padding: 8px;
+    width: 270px;
+    margin-bottom: 5px;
+    margin-left: 4px;
+    border-radius: 4px;
+    border:2px solid black;
+
+}
+
+
 .messages{
     list-style: none;
 }
