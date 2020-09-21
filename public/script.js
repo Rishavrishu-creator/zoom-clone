@@ -146,7 +146,7 @@ function startChat(a){
     
     document.getElementById("myModal1").style.display="block"
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
-    var sender_id = array[array.length-1].participants[a]
+    var sender_id = array[array.length-1].participants[a]//socket id of user who is recieving the message
     document.getElementById("chat_button1").onclick=function()
     {
         var mess = document.getElementById("chat_message1").value
