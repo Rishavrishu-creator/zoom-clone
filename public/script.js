@@ -139,6 +139,7 @@ function renderData()
 function startChat(a){
     modal.style.display="none"
     document.getElementById("myModal1").style.display="block"
+    document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
     
   
 }
