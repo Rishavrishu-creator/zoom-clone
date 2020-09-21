@@ -181,9 +181,7 @@ h2{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
-  .down{
-      margin-top:70vh;
-  }
+  
   
   /* Modal Content */
   .modal-content1 {
@@ -193,6 +191,9 @@ h2{
     border: 1px solid #888;
     width: 80%;
     height: 80vh;
+  }
+  .uul1{
+      height: 70vh;
   }
   .uul1 li{
       cursor: pointer;
