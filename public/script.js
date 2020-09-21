@@ -99,7 +99,7 @@ peer.on('open',function(id){
      socket.on('message',function(data){
          array.push(data)
          console.log(array)
-         console.log(array.current)
+         console.log(array[array.length-1].current)
          console.log("Finished")
          renderData()
          
