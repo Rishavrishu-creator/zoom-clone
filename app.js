@@ -50,6 +50,10 @@ io.on('connection',function(socket){
             
             io.to(roomId).emit("chatts",data)
         })
+        socket.on("private-message",function(data){
+            io.to(data.sender).emit("message-sent",data);
+        })
+
         socket.on('disconnect', () => {
             var array1=[]
             var j=0;

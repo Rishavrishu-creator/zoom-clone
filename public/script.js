@@ -140,9 +140,41 @@ function startChat(a){
     modal.style.display="none"
     document.getElementById("myModal1").style.display="block"
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
-    
-  
+    var sender_id = array[array.length-1].participants[a]
+    document.getElementById("chat_button1").onclick=function()
+    {
+        var mess = document.getElementById("chat_message1").value
+        if(mess!=null)
+        {
+            socket.emit("private-message",{
+               message:mess,
+               identity:name,
+               sender:sender_id
+            })
+          
+        }
+    }
+    document.getElementById('chat_message1').onkeydown = function(e){
+        if(e.keyCode == 13){
+            var a = document.getElementById("chat_message1").value;
+            if(a!='')
+            {
+            socket.emit('private-message',{
+                message:mess,
+               identity:name,
+               sender:sender_id
+            })  
+        }
+     }
+    }
 }
+socket.on('message-sent',function(data){
+
+    html1="<li><strong>"+data.identity+"</strong><br>"+data.message+"</li>"
+    document.querySelector(".uul1").innerHTML+=html1;
+    document.getElementById("chat_message1").value=""
+
+})
 
 
 function addVideoStream(video,stream){
