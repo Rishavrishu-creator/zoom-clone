@@ -269,3 +269,14 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+var span1 = document.getElementsByClassName("close1")[0];
+span1.onclick=function(){
+    document.getElementById("myModal1").style.display="none"
+}
+window.onclick = function(event) {
+    if (event.target == document.getElementById("myModal1")) {
+      document.getElementById("myModal1").style.display = "none";
+    }
+  }
