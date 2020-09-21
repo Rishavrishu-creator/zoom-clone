@@ -144,6 +144,9 @@ function startChat(a){
     document.getElementById("chat_button1").onclick=function()
     {
         var mess = document.getElementById("chat_message1").value
+        document.getElementById("chat_message1").value=""
+        html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
+    document.querySelector(".uul1").innerHTML+=html1;
         if(mess!=null)
         {
             socket.emit("private-message",{
@@ -157,6 +160,9 @@ function startChat(a){
     document.getElementById('chat_message1').onkeydown = function(e){
         if(e.keyCode == 13){
             var a = document.getElementById("chat_message1").value;
+            document.getElementById("chat_message1").value=""
+            html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
+            document.querySelector(".uul1").innerHTML+=html1;
             if(a!='')
             {
             socket.emit('private-message',{
