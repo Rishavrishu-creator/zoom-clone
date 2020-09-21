@@ -133,6 +133,10 @@ h2{
     border: 1px solid #888;
     width: 80%;
   }
+  .uul li:hover{
+    background-color: #343434;
+    border-radius: 5px;
+  }
   
   /* The Close Button */
   .close {
