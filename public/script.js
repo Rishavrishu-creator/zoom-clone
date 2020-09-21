@@ -137,8 +137,7 @@ function renderData()
 }
 
 function startChat(a){
-   console.log("rishav")
-   modal.style.display="none";
+  console.log(a)
 
 }
 
