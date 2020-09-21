@@ -98,7 +98,9 @@ peer.on('open',function(id){
      })
      socket.on('message',function(data){
          array.push(data)
-         localStorage.setItem('current',array[array.length-1].current)
+         console.log(array)
+         console.log(array.current)
+         console.log("Finished")
          renderData()
          
      })
@@ -118,7 +120,7 @@ function renderData1()
         {
           array[array.length-1].names.splice(i,1)
         }
-        if(localStorage.getItem('current')==array[array.length-1].participants[i])
+        if(array[array.length-1].current==array[array.length-1].participants[i])
         {
 
         }
@@ -135,7 +137,7 @@ function renderData()
          var html1=''
          for(var i=0;i<array[array.length-1].names.length;i++)
      {
-        if(localStorage.getItem('current')==array[array.length-1].participants[i])
+        if(array[array.length-1].current==array[array.length-1].participants[i])
         {
 
         }
