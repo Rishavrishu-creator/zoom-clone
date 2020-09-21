@@ -51,7 +51,9 @@ body{
 
 }
 
-
+.cha{
+    overflow-y: scroll;
+}
 .messages{
     list-style: none;
 }
