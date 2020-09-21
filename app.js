@@ -36,6 +36,7 @@ io.on('connection',function(socket){
         data.socket_id=socket.id;
         data.participants=array;
         data.names=names
+        data.current=socket.id
         
         io.emit('message', data);
     })

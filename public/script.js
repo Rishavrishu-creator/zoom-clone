@@ -98,7 +98,7 @@ peer.on('open',function(id){
      })
      socket.on('message',function(data){
          array.push(data)
-        
+         
          renderData()
          
      })
@@ -118,9 +118,13 @@ function renderData1()
         {
           array[array.length-1].names.splice(i,1)
         }
+        if(array[array.length-1].current==array[array.length-1].participants[i])
+        {
+
+        }
         else{
-            html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat("+i+")'>"+array[array.length-1].names[i]+"</li>"
-            document.querySelector(".uul").innerHTML+=html1
+        html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat("+i+")'>"+array[array.length-1].names[i]+"</li>"
+        document.querySelector(".uul").innerHTML+=html1
         }
     }
 }
@@ -131,8 +135,15 @@ function renderData()
          var html1=''
          for(var i=0;i<array[array.length-1].names.length;i++)
      {
+        if(array[array.length-1].current==array[array.length-1].participants[i])
+        {
+
+        }
+        else{
         html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat("+i+")'>"+array[array.length-1].names[i]+"</li>"
         document.querySelector(".uul").innerHTML+=html1
+        }
+
      }
 }
 
