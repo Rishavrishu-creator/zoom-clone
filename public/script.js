@@ -131,7 +131,7 @@ function renderData()
          var html1=''
          for(var i=0;i<array[array.length-1].names.length;i++)
      {
-        html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat(i)'>"+array[array.length-1].names[i]+"</li>"
+        html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat('"+i+"')'>"+array[array.length-1].names[i]+"</li>"
         document.querySelector(".uul").innerHTML+=html1
      }
 }
