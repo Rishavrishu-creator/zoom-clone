@@ -134,7 +134,7 @@ function renderData()
          for(var i=0;i<array[array.length-1].names.length;i++)
      {
        
-        html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat("+i+")'>"+array[array.length-1].names[i]+"</li>"
+        html1="<a href='/private'><li id="+array[array.length-1].participants[i]+" onclick='startChat("+i+")'>"+array[array.length-1].names[i]+"</li></a>"
         document.querySelector(".uul").innerHTML+=html1
         
 
@@ -162,22 +162,6 @@ function startChat(a){
             })
           
         }
-    }
-    document.getElementById('chat_message1').onkeydown = function(e){
-        if(e.keyCode == 13){
-            var a = document.getElementById("chat_message1").value;
-            document.getElementById("chat_message1").value=""
-            html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
-            document.querySelector(".uul1").innerHTML+=html1;
-            if(a!='')
-            {
-            socket.emit('private-message',{
-                message:mess,
-               identity:name,
-               sender:sender_id
-            })  
-        }
-     }
     }
 }
 socket.on('message-sent',function(data){

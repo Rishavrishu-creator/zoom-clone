@@ -24,6 +24,14 @@ app.get('/:room',function(req,res){
     res.render("index",{'roomId':req.params.room})
     
 })
+app.get('/private',function(req,res){
+    res.redirect('/private'+uuidv4())
+})
+app.get('/private/:id',function(req,res){
+    res.render("private",{
+        roomId:req.params.id
+    })
+})
 var array=[]
 var array2=[]
 var names = []
