@@ -52,22 +52,28 @@ io.on('connection',function(socket){
         })
         socket.on('disconnect', () => {
             var array1=[]
+            var j=0;
+            
             for(var i=0;i<array2.length;i++)
             {
                 if(array2[i]==socket.id)
                 {
                     array2.splice(i,1)
+                    j=i
                     break
                 }
             }
             
             array1.push(socket.id)
+            var removed_name = names[j]
             roomId.removed=array1
+            roomId.removed_name=removed_name
             if(array2.length==0)
             {
                 array2=[]
                 array1=[]
                 array=[]
+                names=[]
             }
             console.log(roomId)
             socket.to(roomId).broadcast.emit('user-disconnected', roomId)

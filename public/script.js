@@ -58,6 +58,7 @@ navigator.mediaDevices.getUserMedia({
 
 
 socket.on('user-disconnected', userId => {
+    console.log(userId)
     var aa=userId.removed[0];
     if(array.length>0)
     {
