@@ -151,8 +151,10 @@ function startChat(a){
     {
         var mess = document.getElementById("chat_message1").value
         document.getElementById("chat_message1").value=""
-        html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
+       /* html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
     document.querySelector(".uul1").innerHTML+=html1;
+    */
+   
         if(mess!=null)
         {
             socket.emit("private-message",{

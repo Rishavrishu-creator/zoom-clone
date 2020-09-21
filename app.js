@@ -54,7 +54,7 @@ io.on('connection',function(socket){
         })
         socket.on("private-message",function(data){
             data.received_from=socket.id
-            io.to(data.sender).emit("message-sent",data);
+            io.to(data.sender).to(socket.id).emit("message-sent",data);
         })
 
         socket.on('disconnect', () => {
