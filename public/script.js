@@ -1,3 +1,5 @@
+const { format } = require("path");
+
 var name;
 var array=[]
 var names = []
@@ -55,7 +57,7 @@ navigator.mediaDevices.getUserMedia({
 })
 
 })
-
+var j=0;
 
 socket.on('user-disconnected', userId => {
     console.log(userId)
@@ -74,10 +76,11 @@ socket.on('user-disconnected', userId => {
                if(array[array.length-1].participants[i]==aa)
                {
                   array[array.length-1].participants.splice(i,1)
+                  j=i
                   break
                }
             }
-           renderData()
+           renderData1()
            
         }
     
@@ -107,6 +110,22 @@ peer.on('open',function(id){
     })
 
 })
+function renderData1()
+{
+    document.querySelector(".uul").innerHTML=""
+    var html1=''
+    for(var i=0;i<array[array.length-1].names.length;i++)
+    {
+        if(i==j)
+        {
+          array[array.length-1].names.splice(i,1)
+        }
+        else{
+            html1="<li>"+array[array.length-1].names[i]+"</li>"
+        document.querySelector(".uul").innerHTML+=html1
+        }
+    }
+}
 
 function renderData()
 {
