@@ -136,6 +136,7 @@ h2{
   .uul li:hover{
     background-color: #857f7f;
     border-radius: 5px;
+    cursor: pointer;
   }
   
   /* The Close Button */
