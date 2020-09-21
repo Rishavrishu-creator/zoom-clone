@@ -133,10 +133,13 @@ h2{
     border: 1px solid #888;
     width: 80%;
   }
+  .uul li{
+      cursor: pointer;
+  }
   .uul li:hover{
     background-color: #857f7f;
     border-radius: 5px;
-    cursor: pointer;
+    
   }
   
   /* The Close Button */
