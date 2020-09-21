@@ -53,6 +53,7 @@ io.on('connection',function(socket){
             io.to(roomId).emit("chatts",data)
         })
         socket.on("private-message",function(data){
+            data.received_from=socket.id
             io.to(data.sender).emit("message-sent",data);
         })
 
