@@ -1,5 +1,3 @@
-const { format } = require("path");
-
 var name;
 var array=[]
 var names = []
