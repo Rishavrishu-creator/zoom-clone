@@ -119,7 +119,7 @@ function renderData1()
           array[array.length-1].names.splice(i,1)
         }
         else{
-            html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat('"+array[array.length-1].participants[i]+"'>'"+array[array.length-1].names[i]+"</li>"
+            html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat(this.id)'>"+array[array.length-1].names[i]+"</li>"
             document.querySelector(".uul").innerHTML+=html1
         }
     }
@@ -131,7 +131,7 @@ function renderData()
          var html1=''
          for(var i=0;i<array[array.length-1].names.length;i++)
      {
-        html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat('"+array[array.length-1].participants[i]+"')' >"+array[array.length-1].names[i]+"</li>"
+        html1="<li id="+array[array.length-1].participants[i]+" onclick='startChat(this.id)'>"+array[array.length-1].names[i]+"</li>"
         document.querySelector(".uul").innerHTML+=html1
      }
 }
