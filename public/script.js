@@ -137,8 +137,8 @@ function renderData()
 }
 
 function startChat(a){
-    console.log(a)
-    
+   alert(a)
+
 }
 
 
