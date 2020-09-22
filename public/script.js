@@ -143,7 +143,7 @@ function startChat(a){
     modal.style.display="none"
 
     window.setInterval(function() {
-        var elem = document.querySelector(".uul1");
+        var elem = document.getElementById("chh");
         elem.scrollTop = elem.scrollHeight;
       }, 1000);
     
