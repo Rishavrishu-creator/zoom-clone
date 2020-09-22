@@ -142,7 +142,10 @@ function renderData()
 function startChat(a){
     modal.style.display="none"
 
-    $(".uul1").scrollTop($(".uul1").height()); 
+    window.setInterval(function() {
+        var elem = document.querySelector(".uul1");
+        elem.scrollTop = elem.scrollHeight;
+      }, 1000);
     
     document.getElementById("myModal1").style.display="block"
 
