@@ -143,7 +143,6 @@ function startChat(a){
     modal.style.display="none"
     
     document.getElementById("myModal1").style.display="block"
-   
 
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
     var sender_id = array[array.length-1].participants[a]//socket id of user who is recieving the message
@@ -155,7 +154,7 @@ function startChat(a){
     document.querySelector(".uul1").innerHTML+=html1;
     */
 
-        if(mess!=null)
+        if(mess!=null || mess!="")
         {
             socket.emit("private-message",{
                message:mess,
