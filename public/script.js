@@ -153,6 +153,8 @@ function startChat(a){
     sender_id = array[array.length-1].participants[a]//socket id of user who is recieving the message
    
 }
+document.getElementById("chat_button1").disabled = true;
+
 document.getElementById("chat_button1").onclick=function()
 {
     var mess = document.getElementById("chat_message1").value
