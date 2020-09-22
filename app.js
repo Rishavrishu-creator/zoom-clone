@@ -60,8 +60,9 @@ io.on('connection',function(socket){
 
         socket.on('decline',function(data){
             console.log("Checkingg")
-            console.log(data.received_from)
-            io.to(data.received_from).emit("declined-accepted",data)
+            console.log(data)
+            console.log(data.to)
+            io.to(data.to).emit("declined-accepted",data)
         })
 
         socket.on("private-message",function(data){
