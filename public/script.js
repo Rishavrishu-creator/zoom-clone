@@ -171,8 +171,8 @@ socket.on('invite-request',function(data){
     }
     document.getElementById("decline").onclick=function()
     {
+        console.log(data.received_from)
         socket.emit("decline",{
-            status:"Decline",
             to:data.received_from
         })
     }
