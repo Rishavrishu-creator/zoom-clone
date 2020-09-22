@@ -179,6 +179,7 @@ socket.on('invite-request',function(data){
 
 })
 socket.on('declined-accepted',function(data){
+    console.log("Declined")
     document.getElementById("myModal1").style.display="none"
 })
 
