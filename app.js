@@ -60,6 +60,7 @@ io.on('connection',function(socket){
 
         socket.on('decline',function(data){
             console.log("Checkingg")
+            console.log(data.received_from)
             io.to(data.received_from).emit("declined-accepted",data)
         })
 
