@@ -191,7 +191,7 @@ socket.on('declined-accepted',function(data){
 socket.on('accepted',function(data){
     document.getElementById("myModal1").style.display="block"
     document.getElementById("chat_button1").disabled=false
-    var accepted_by = data.accepted_by
+    var accepted_by = data.to
     var name=''
     for(var i=0;i<array[array.length-1].participants.length;i++)
     {
