@@ -158,7 +158,11 @@ function startChat(a){
 document.getElementById("chat_button1").disabled = true;
 socket.on('invite-request',function(data){
     console.log("Invite by socket id:"+data.received_from)
+    document.getElementById("h32").innerHTML="Invite Request By :"+data.received_from
+    document.getElementById("myModal2").style.display="block"
 })
+
+
 document.getElementById("chat_button1").onclick=function()
 {
     var mess = document.getElementById("chat_message1").value
