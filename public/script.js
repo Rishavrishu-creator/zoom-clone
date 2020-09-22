@@ -141,6 +141,8 @@ function renderData()
 
 function startChat(a){
     modal.style.display="none"
+
+    $(".uul1").scrollTop($(".uul1").height()); 
     
     document.getElementById("myModal1").style.display="block"
 
