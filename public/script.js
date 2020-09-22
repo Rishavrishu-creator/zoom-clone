@@ -167,7 +167,10 @@ socket.on('invite-request',function(data){
     }
     document.getElementById("accept").onclick=function()
     {
-
+      document.getElementById("myModal2").style.display="none"
+      socket.emit("accept",{
+          to:data.received_from
+      })
     }
     document.getElementById("decline").onclick=function()
     {
@@ -182,6 +185,12 @@ socket.on('invite-request',function(data){
 socket.on('declined-accepted',function(data){
     console.log("Declined")
     document.getElementById("myModal1").style.display="none"
+})
+
+socket.on('accepted',function(data){
+    document.getElementById("myModal1").style.display="block"
+    document.getElementById("chat_button1").disabled=false
+
 })
 
 document.getElementById("chat_button1").onclick=function()

@@ -59,10 +59,11 @@ io.on('connection',function(socket){
         })
 
         socket.on('decline',function(data){
-            console.log("Checkingg")
-            console.log(data)
-            console.log(data.to)
             io.to(data.to).emit("declined-accepted",data)
+        })
+
+        socket.on('accept',function(data){
+             io.to(socket.id).to(data.to).emit("accepted",data)
         })
 
         socket.on("private-message",function(data){
