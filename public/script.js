@@ -155,6 +155,24 @@ function startChat(a){
     document.getElementById("myModal1").style.display="block"
 
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
+    document.getElementById("chat_button1").onclick=function()
+{
+    var mess = document.getElementById("chat_message1").value
+    document.getElementById("chat_message1").value=""
+   /* html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
+document.querySelector(".uul1").innerHTML+=html1;
+*/
+
+    if(mess!=null || mess!="")
+    {
+        socket.emit("private-message",{
+           message:mess,
+           identity:name,
+           sender:sender_id //socket id of person to whom message is sent
+        })
+      
+    }
+}
    
 }
 socket.on('invite-request',function(data){
@@ -207,24 +225,7 @@ socket.on('accepted',function(data){
 
 })
 
-document.getElementById("chat_button1").onclick=function()
-{
-    var mess = document.getElementById("chat_message1").value
-    document.getElementById("chat_message1").value=""
-   /* html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
-document.querySelector(".uul1").innerHTML+=html1;
-*/
 
-    if(mess!=null || mess!="")
-    {
-        socket.emit("private-message",{
-           message:mess,
-           identity:name,
-           sender:sender_id //socket id of person to whom message is sent
-        })
-      
-    }
-}
 socket.on('message-sent',function(data){
 
     html1="<li><strong>"+data.identity+"</strong><br>"+data.message+"</li>"
