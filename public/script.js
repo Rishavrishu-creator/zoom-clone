@@ -185,11 +185,24 @@ socket.on('invite-request',function(data){
 socket.on('declined-accepted',function(data){
     console.log("Declined")
     document.getElementById("myModal1").style.display="none"
+    
 })
 
 socket.on('accepted',function(data){
     document.getElementById("myModal1").style.display="block"
     document.getElementById("chat_button1").disabled=false
+    var accepted_by = data.accepted_by
+    var name=''
+    for(var i=0;i<array[array.length-1].participants.length;i++)
+    {
+        if(accepted_by==array[array.length-1].participants[i])
+        {
+            name = array[array.length-1].names[i]
+            break
+        }
+    }
+    document.getElementById("h31").innerHTML="Private Chat with "+name
+
 
 })
 

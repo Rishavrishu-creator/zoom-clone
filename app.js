@@ -63,6 +63,7 @@ io.on('connection',function(socket){
         })
 
         socket.on('accept',function(data){
+            data.accepted_by=socket.id
              io.to(socket.id).to(data.to).emit("accepted",data)
         })
 
