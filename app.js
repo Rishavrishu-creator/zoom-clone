@@ -58,6 +58,10 @@ io.on('connection',function(socket){
             io.to(data.sender).emit("invite-request",data)
         })
 
+        socket.on('decline',function(data){
+            io.to(data.received_from).emit("declined-accepted",data)
+        })
+
         socket.on("private-message",function(data){
             data.received_from=socket.id
            
