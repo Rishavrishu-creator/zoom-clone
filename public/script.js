@@ -141,20 +141,24 @@ function renderData()
 var sender_id=''
 function startChat(a){
     modal.style.display="none"
+    sender_id = array[array.length-1].participants[a]//socket id of user who is recieving the message
 
     window.setInterval(function() {
         var elem = document.getElementById("chh");
         elem.scrollTop = elem.scrollHeight;
       }, 1000);
-    
+    socket.emit("come-privately",{
+        sender:sender_id
+    })
     document.getElementById("myModal1").style.display="block"
 
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
-    sender_id = array[array.length-1].participants[a]//socket id of user who is recieving the message
    
 }
 document.getElementById("chat_button1").disabled = true;
-
+socket.on('invite-request',function(data){
+    console.log("Invite by socket id:"+data.received_from)
+})
 document.getElementById("chat_button1").onclick=function()
 {
     var mess = document.getElementById("chat_message1").value
