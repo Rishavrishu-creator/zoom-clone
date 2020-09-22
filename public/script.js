@@ -141,6 +141,8 @@ function renderData()
 var sender_id=''
 function startChat(a){
     modal.style.display="none"
+    document.getElementById("chat_button1").disabled = true;
+
     sender_id = array[array.length-1].participants[a]//socket id of user who is recieving the message
 
     window.setInterval(function() {
@@ -155,7 +157,6 @@ function startChat(a){
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
    
 }
-document.getElementById("chat_button1").disabled = true;
 socket.on('invite-request',function(data){
     console.log("Invite by socket id:"+data.received_from)
     document.getElementById("h32").innerHTML="Invite Request By :"+data.received_from
