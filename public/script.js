@@ -141,7 +141,7 @@ function renderData()
 var sender_id=''
 function startChat(a){
     modal.style.display="none"
-    document.getElementById("chat_button1").disabled = true;
+    
 
     sender_id = array[array.length-1].participants[a]//socket id of user who is recieving the message
 
@@ -209,9 +209,9 @@ socket.on('declined-accepted',function(data){
 })
 
 socket.on('accepted',function(data){
-    console.log("Accepted")
+    
     document.getElementById("myModal1").style.display="block"
-    document.getElementById("chat_button1").disabled=false
+    
     var accepted_by = data.to
     var name=''
     for(var i=0;i<array[array.length-1].participants.length;i++)
