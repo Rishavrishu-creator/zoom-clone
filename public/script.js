@@ -156,26 +156,12 @@ function startChat(a){
     document.getElementById("myModal1").style.display="block"
 
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
-  
-    /*
-    document.getElementById("chat_button1").onclick=function()
-{
-    var mess = document.getElementById("chat_message1").value
-    document.getElementById("chat_message1").value=""
-  
+}
 
-    if(mess!=null || mess!="")
-    {
-        socket.emit("private-message",{
-           message:mess,
-           identity:name,
-           sender:sender_id //socket id of person to whom message is sent
-        })
-      
-    }
-}
+    /*
+   
    */
-}
+
 socket.on('invite-request',function(data){
     console.log("Invite by socket id:"+data.received_from)
     document.getElementById("h32").innerHTML="Invite Request By :"+data.received_from
@@ -207,13 +193,14 @@ socket.on('declined-accepted',function(data){
     document.getElementById("myModal1").style.display="none"
     
 })
-
+var accepted_by=''
+var waiting_person=''
 socket.on('accepted',function(data){
     console.log(array)
     document.getElementById("myModal1").style.display="block"
     
-    var accepted_by = data.to//person who accepted my request
-    var waiting_person = data.accepted_by//person who is waiting for acceptance/rejection
+    accepted_by = data.to//person who accepted my request
+    waiting_person = data.accepted_by//person who is waiting for acceptance/rejection
     var name=''
     for(var i=0;i<array[array.length-1].participants.length;i++)
     {
@@ -224,9 +211,30 @@ socket.on('accepted',function(data){
         }
     }
     document.getElementById("h31").innerHTML="Private Chat with "+name
-
-
 })
+
+document.getElementById("chat_button1").onclick=function()
+{
+    var mess = document.getElementById("chat_message1").value
+    document.getElementById("chat_message1").value=""
+  
+
+    if(mess!=null || mess!="")
+    {
+        socket.emit("private-message",{
+           message:mess,
+           identity:name,
+           leader:waiting_person, //socket id of person to whom message is sent
+           follower:accepted_by
+        })
+      
+    }
+}
+
+
+
+
+
 
 
 socket.on('message-sent',function(data){

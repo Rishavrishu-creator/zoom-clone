@@ -69,9 +69,16 @@ io.on('connection',function(socket){
         })
 
         socket.on("private-message",function(data){
-            data.received_from=socket.id
+             var a = socket.id
+             if(a==data.leader)
+             {
+                io.to(data.follower).to(socket.id).emit("message-sent",data);
+             }
+             else{
+                io.to(data.leader).to(socket.id).emit("message-sent",data);
+             }
            
-            io.to(data.sender).to(socket.id).emit("message-sent",data);
+            
         })
 
         socket.on('disconnect', () => {
