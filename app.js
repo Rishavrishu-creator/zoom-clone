@@ -130,7 +130,7 @@ io.on('connection',function(socket){
                array4.splice(i,1)
                array4.splice(j,1)
                io.to(socket.id).to(second).emit("closed",data)
-               break
+               
             }
            if(socket.id==array3[i]["second"])
            {
@@ -140,7 +140,7 @@ io.on('connection',function(socket){
             array4.splice(i,1)
             array4.splice(j,1)
             io.to(socket.id).to(second).emit("closed",data)
-            break
+            
            }
         }
 /*
