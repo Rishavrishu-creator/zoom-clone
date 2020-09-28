@@ -91,11 +91,13 @@ io.on('connection',function(socket){
             {
                 if(array3[i]["first"]==socket.id)
                 {
+                    console.log(socket.id)
                     io.to(array3[i]["second"]).to(socket.id).emit("message-sent",data);
                     break
                 }
                 if(array3[i]["second"]==socket.id)
                 {
+                    console.log(socket.id)
                     io.to(socket.id).to(array3[i]["first"]).emit("message-sent",data)
                     break
                 }
