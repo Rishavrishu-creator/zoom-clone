@@ -154,7 +154,7 @@ function startChat(a){
         sender:sender_id
     })
     document.getElementById("myModal1").style.display="block"
-
+    document.querySelector(".uul1").innerHTML=""
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
 }
 
