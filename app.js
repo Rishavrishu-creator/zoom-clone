@@ -86,7 +86,19 @@ io.on('connection',function(socket){
         })
 
         socket.on("private-message",function(data){
-             
+
+            for(var i=0;i<array3.length;i++)
+            {
+                if(array3[i]["first"]==socket.id)
+                {
+                    io.to(array3[i]["second"]).to(socket.id).emit("message-sent",data);
+                }
+                else
+                {
+                    io.to(socket.id).to(array3[i]["first"]).emit("message-sent",data)
+                }
+            }
+             /*
                 var obj = Object.keys(array3[array3.length-1])
                  
                 if(socket.id==array3[array3.length-1][obj[0]])
@@ -96,8 +108,37 @@ io.on('connection',function(socket){
                 else{
                     io.to(socket.id).to(array3[array3.length-1][obj[0]]).emit("message-sent",data);
                 }
+                */
         })
        socket.on("private-close",function(data){
+
+
+        for(var i=0;i<array3.length;i++)
+        {
+            if(socket.id==array3[i]["first"])
+            {
+               var second = array3[i]["second"]
+               var i=array4.indexOf(socket.id)
+               var j=array4.indexOf(second)
+               array4.splice(i,1)
+               array4.splice(j,1)
+               io.to(socket.id).to(second).emit("closed",data)
+            }
+           else
+           {
+            var second = array3[i]["first"]
+            var i=array4.indexOf(socket.id)
+            var j=array4.indexOf(second)
+            array4.splice(i,1)
+            array4.splice(j,1)
+            io.to(socket.id).to(second).emit("closed",data)
+           }
+        }
+
+
+
+
+/*
         var obj = Object.keys(array3[array3.length-1])
          if(socket.id==array3[array3.length-1][obj[0]])
          {
@@ -117,7 +158,10 @@ io.on('connection',function(socket){
             array4.splice(j,1)
             io.to(socket.id).to(second).emit("closed",data)
          }
+         */
        })
+
+
         socket.on('disconnect', () => {
             var array1=[]
             var j=0;
