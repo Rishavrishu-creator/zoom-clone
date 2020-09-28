@@ -224,8 +224,8 @@ document.getElementById("chat_button1").onclick=function()
         socket.emit("private-message",{
            message:mess,
            identity:name,
-           leader:waiting_person, //socket id of person to whom message is sent
-           follower:accepted_by
+           leader:accepted_by, //socket id of person to whom message is sent
+           follower:waiting_person
         })
       
     }
