@@ -161,6 +161,10 @@ function startChat(a){
     /*
    
    */
+  socket.on("rejected",function(data){
+    document.getElementById("myModal1").style.display="none"
+    alert("He is busy in another chat! Try after some time")
+  })
 
 socket.on('invite-request',function(data){
     console.log("Invite by socket id:"+data.received_from)

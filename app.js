@@ -28,6 +28,7 @@ var array=[]
 var array3=[]
 var array2=[]
 var names = []
+var array4=[]
 io.on('connection',function(socket){
     console.log("Socket id :"+ socket.id)
     socket.on('give-data',function(data){
@@ -55,8 +56,16 @@ io.on('connection',function(socket){
         })
         
         socket.on('come-privately',function(data){
+            if(array4.includes(data.sender))
+            {
+                io.to(socket.id).emit("rejected",data)
+            }
+            else
+            {
             data.received_from=socket.id
             io.to(data.sender).emit("invite-request",data)
+            }
+            
         })
 
         socket.on('decline',function(data){
