@@ -213,8 +213,11 @@ socket.on('accepted',function(data){
     document.getElementById("h31").innerHTML="Private Chat with "+name
 })
 
+var array1=[]
 document.getElementById("chat_button1").onclick=function()
 {
+    array1[0]=accepted_by
+    array1[1]=waiting_person
     var mess = document.getElementById("chat_message1").value
     document.getElementById("chat_message1").value=""
   
