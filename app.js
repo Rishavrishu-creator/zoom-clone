@@ -67,7 +67,8 @@ io.on('connection',function(socket){
             var a = data.to
             var b= socket.id
             array3.push({
-                a:b                
+               "first":a,
+               "second":b                
             })
             data.accepted_by=socket.id
              io.to(socket.id).emit("accepted",data)
@@ -77,7 +78,7 @@ io.on('connection',function(socket){
              
                 var obj = Object.keys(array3[array3.length-1])
                  console.log(obj)
-                 console.log(array3[array3.length-1].obj[0])
+                
                 io.to(socket.id).emit("message-sent",data);
              
                 io.to(socket.id).emit("message-sent",data);
