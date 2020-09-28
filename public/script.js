@@ -209,6 +209,7 @@ socket.on('declined-accepted',function(data){
 })
 
 socket.on('accepted',function(data){
+    console.log("Accepted")
     document.getElementById("myModal1").style.display="block"
     document.getElementById("chat_button1").disabled=false
     var accepted_by = data.to
