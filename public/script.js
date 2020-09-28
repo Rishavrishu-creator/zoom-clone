@@ -388,6 +388,7 @@ span1.onclick=function(){
     document.getElementById("myModal1").style.display="none"
 }
 socket.on("closed",function(data){
+    document.getElementById("myModal1").style.display="none"
     alert("Connection ended")
     console.log("Connection ended")
 })
