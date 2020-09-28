@@ -209,10 +209,11 @@ socket.on('declined-accepted',function(data){
 })
 
 socket.on('accepted',function(data){
-    
+    console.log(array)
     document.getElementById("myModal1").style.display="block"
     
-    var accepted_by = data.to
+    var accepted_by = data.to//person who accepted my request
+    var waiting_person = data.accepted_by//person who is waiting for acceptance/rejection
     var name=''
     for(var i=0;i<array[array.length-1].participants.length;i++)
     {
