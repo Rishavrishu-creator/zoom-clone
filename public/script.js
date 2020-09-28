@@ -382,8 +382,16 @@ window.onclick = function(event) {
 
 var span1 = document.getElementsByClassName("close1")[0];
 span1.onclick=function(){
+    socket.emit("private-close",{
+        message:"close"
+    })
     document.getElementById("myModal1").style.display="none"
 }
+socket.on("closed",function(data){
+    alert("Connection ended")
+    console.log("Connection ended")
+})
+
 window.onclick = function(event) {
     if (event.target == document.getElementById("myModal1")) {
       document.getElementById("myModal1").style.display = "none";

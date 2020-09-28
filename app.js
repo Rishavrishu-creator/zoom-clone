@@ -96,10 +96,28 @@ io.on('connection',function(socket){
                 else{
                     io.to(socket.id).to(array3[array3.length-1][obj[0]]).emit("message-sent",data);
                 }
-                
-            
         })
-
+       socket.on("private-close",function(data){
+        var obj = Object.keys(array3[array3.length-1])
+         if(socket.id==array3[array3.length-1][obj[0]])
+         {
+            var second = array3[array3.length-1][obj[1]]
+            var i=array4.indexOf(socket.id)
+            var j=array4.indexOf(second)
+            array4.splice(i,1)
+            array4.splice(j,1)
+            io.to(socket.id).to(second).emit("closed",data)
+         }
+         else
+         {
+            var second = array3[array3.length-1][obj[0]]
+            var i=array4.indexOf(socket.id)
+            var j=array4.indexOf(second)
+            array4.splice(i,1)
+            array4.splice(j,1)
+            io.to(socket.id).to(second).emit("closed",data)
+         }
+       })
         socket.on('disconnect', () => {
             var array1=[]
             var j=0;
