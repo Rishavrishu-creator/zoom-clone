@@ -201,7 +201,7 @@ var accepted_by=''
 var waiting_person=''
 var array1=[]
 socket.on('accepted',function(data){
-    
+    document.querySelector(".uul1").innerHTML=""
     document.getElementById("myModal1").style.display="block"
     
     accepted_by = data.to//person who accepted my request
