@@ -70,6 +70,8 @@ io.on('connection',function(socket){
 
         socket.on("private-message",function(data){
              var a = socket.id
+             console.log("Leader:"+data.leader)
+             console.log("Follower:"+data.follower)
              if(a==data.leader)
              {
                 io.to(data.follower).to(socket.id).emit("message-sent",data);
