@@ -92,10 +92,12 @@ io.on('connection',function(socket){
                 if(array3[i]["first"]==socket.id)
                 {
                     io.to(array3[i]["second"]).to(socket.id).emit("message-sent",data);
+                    break
                 }
-                else
+                if(array3[i]["second"]==socket.id)
                 {
                     io.to(socket.id).to(array3[i]["first"]).emit("message-sent",data)
+                    break
                 }
             }
              /*
@@ -123,8 +125,9 @@ io.on('connection',function(socket){
                array4.splice(i,1)
                array4.splice(j,1)
                io.to(socket.id).to(second).emit("closed",data)
+               break
             }
-           else
+           if(socket.id==array3[i]["second"])
            {
             var second = array3[i]["first"]
             var i=array4.indexOf(socket.id)
@@ -132,6 +135,7 @@ io.on('connection',function(socket){
             array4.splice(i,1)
             array4.splice(j,1)
             io.to(socket.id).to(second).emit("closed",data)
+            break
            }
         }
 
