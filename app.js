@@ -77,13 +77,15 @@ io.on('connection',function(socket){
         socket.on("private-message",function(data){
              
                 var obj = Object.keys(array3[array3.length-1])
-                 console.log(obj)
-                console.log(array3[array3.length-1][obj[0]])
-                io.to(socket.id).emit("message-sent",data);
-             
-               
-             
-           
+                 
+                if(socket.id==array3[array3.length-1][obj[0]])
+                {
+                    io.to(array3[array3.length-1][obj[1]]).emit("message-sent",data);
+                }
+                else{
+                    io.to(socket.id).emit("message-sent",data);
+                }
+                
             
         })
 
