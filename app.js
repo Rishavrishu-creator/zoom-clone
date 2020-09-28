@@ -95,6 +95,7 @@ io.on('connection',function(socket){
                     console.log(socket.id)
                     io.to(array3[i]["second"]).to(socket.id).emit("message-sent",data);
                     
+                    
                 }
                 if(array3[i]["second"]==socket.id)
                 {
@@ -118,7 +119,7 @@ io.on('connection',function(socket){
         })
        socket.on("private-close",function(data){
 
-/*
+
         for(var i=0;i<array3.length;i++)
         {
             if(socket.id==array3[i]["first"])
@@ -142,7 +143,7 @@ io.on('connection',function(socket){
             break
            }
         }
-*/
+/*
         var obj = Object.keys(array3[array3.length-1])
          if(socket.id==array3[array3.length-1][obj[0]])
          {
@@ -162,7 +163,7 @@ io.on('connection',function(socket){
             array4.splice(j,1)
             io.to(socket.id).to(second).emit("closed",data)
          }
-         
+  */       
        })
 
 
