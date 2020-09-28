@@ -78,10 +78,10 @@ io.on('connection',function(socket){
              
                 var obj = Object.keys(array3[array3.length-1])
                  console.log(obj)
-                
+                console.log(array3[array3.length-1][obj[0]])
                 io.to(socket.id).emit("message-sent",data);
              
-                io.to(socket.id).emit("message-sent",data);
+               
              
            
             
