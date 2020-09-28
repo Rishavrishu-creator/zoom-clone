@@ -87,24 +87,24 @@ io.on('connection',function(socket){
 
         socket.on("private-message",function(data){
             console.log(array3)
-            /*
+            
             for(var i=0;i<array3.length;i++)
             {
                 if(array3[i]["first"]==socket.id)
                 {
                     console.log(socket.id)
                     io.to(array3[i]["second"]).to(socket.id).emit("message-sent",data);
-                    break
+                    
                 }
                 if(array3[i]["second"]==socket.id)
                 {
                     console.log(socket.id)
                     io.to(socket.id).to(array3[i]["first"]).emit("message-sent",data)
-                    break
+                
                 }
             }
-            */
-             
+            
+             /*
                 var obj = Object.keys(array3[array3.length-1])
                  
                 if(socket.id==array3[array3.length-1][obj[0]])
@@ -114,7 +114,7 @@ io.on('connection',function(socket){
                 else{
                     io.to(socket.id).to(array3[array3.length-1][obj[0]]).emit("message-sent",data);
                 }
-                
+               */ 
         })
        socket.on("private-close",function(data){
 
@@ -143,10 +143,6 @@ io.on('connection',function(socket){
            }
         }
 */
-
-
-
-
         var obj = Object.keys(array3[array3.length-1])
          if(socket.id==array3[array3.length-1][obj[0]])
          {
