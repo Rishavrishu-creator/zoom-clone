@@ -86,7 +86,7 @@ io.on('connection',function(socket){
         })
 
         socket.on("private-message",function(data){
-
+            console.log(array3)
             for(var i=0;i<array3.length;i++)
             {
                 if(array3[i]["first"]==socket.id)
