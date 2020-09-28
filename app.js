@@ -62,10 +62,12 @@ io.on('connection',function(socket){
             }
             else
             {
+                array4.push(socket.id)
+                array4.push(data.sender)
             data.received_from=socket.id
             io.to(data.sender).emit("invite-request",data)
             }
-            
+
         })
 
         socket.on('decline',function(data){
