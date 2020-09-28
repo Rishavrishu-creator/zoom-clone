@@ -195,8 +195,9 @@ socket.on('declined-accepted',function(data){
 })
 var accepted_by=''
 var waiting_person=''
+var array1=[]
 socket.on('accepted',function(data){
-    console.log(array)
+    
     document.getElementById("myModal1").style.display="block"
     
     accepted_by = data.to//person who accepted my request
@@ -213,17 +214,10 @@ socket.on('accepted',function(data){
     document.getElementById("h31").innerHTML="Private Chat with "+name
 })
 
-var array1=[]
+
 document.getElementById("chat_button1").onclick=function()
 {
-    if(!array1[0])
-    {
-    array1[0]=accepted_by
-    }
-    if(!array1[1])
-    {
-    array1[1]=waiting_person
-    }
+   
 
     var mess = document.getElementById("chat_message1").value
     document.getElementById("chat_message1").value=""
@@ -233,9 +227,8 @@ document.getElementById("chat_button1").onclick=function()
     {
         socket.emit("private-message",{
            message:mess,
-           identity:name,
-           leader:array1[0], 
-           follower:array1[1]
+           identity:name
+           
         })
       
     }

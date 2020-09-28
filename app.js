@@ -25,6 +25,7 @@ app.get('/:room',function(req,res){
     
 })
 var array=[]
+var array3=[]
 var array2=[]
 var names = []
 io.on('connection',function(socket){
@@ -63,22 +64,24 @@ io.on('connection',function(socket){
         })
 
         socket.on('accept',function(data){
-            
+            var a = data.to
+            var b= socket.id
+            array3.push({
+                a:b                
+            })
             data.accepted_by=socket.id
              io.to(socket.id).emit("accepted",data)
         })
 
         socket.on("private-message",function(data){
-             var a = socket.id
-             console.log("Leader:"+data.leader)
-             console.log("Follower:"+data.follower)
-             if(a==data.leader)
-             {
-                io.to(data.follower).to(socket.id).emit("message-sent",data);
-             }
-             else{
-                io.to(data.leader).to(socket.id).emit("message-sent",data);
-             }
+             
+                var obj = Object.keys(array3[array3.length-1])
+                 console.log(obj)
+                 console.log(array3[array3.length-1].obj[0])
+                io.to(socket.id).emit("message-sent",data);
+             
+                io.to(socket.id).emit("message-sent",data);
+             
            
             
         })
