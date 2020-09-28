@@ -188,6 +188,8 @@ io.on('connection',function(socket){
             {
                 array2=[]
                 array1=[]
+                array3=[]
+                array4=[]
                 array=[]
                 names=[]
             }
