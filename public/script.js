@@ -216,8 +216,15 @@ socket.on('accepted',function(data){
 var array1=[]
 document.getElementById("chat_button1").onclick=function()
 {
+    if(!array1[0])
+    {
     array1[0]=accepted_by
+    }
+    if(!array1[1])
+    {
     array1[1]=waiting_person
+    }
+
     var mess = document.getElementById("chat_message1").value
     document.getElementById("chat_message1").value=""
   
@@ -227,8 +234,8 @@ document.getElementById("chat_button1").onclick=function()
         socket.emit("private-message",{
            message:mess,
            identity:name,
-           leader:accepted_by, 
-           follower:waiting_person
+           leader:array1[0], 
+           follower:array1[1]
         })
       
     }
