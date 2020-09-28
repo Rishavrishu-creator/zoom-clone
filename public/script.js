@@ -150,18 +150,19 @@ function startChat(a){
         elem.scrollTop = elem.scrollHeight;
       }, 1000);
     socket.emit("come-privately",{
+        
         sender:sender_id
     })
     document.getElementById("myModal1").style.display="block"
 
     document.getElementById("h31").innerHTML="Private Chat with "+array[array.length-1].names[a]
+  
+    /*
     document.getElementById("chat_button1").onclick=function()
 {
     var mess = document.getElementById("chat_message1").value
     document.getElementById("chat_message1").value=""
-   /* html1="<li><strong>"+name+"</strong><br>"+mess+"</li>"
-document.querySelector(".uul1").innerHTML+=html1;
-*/
+  
 
     if(mess!=null || mess!="")
     {
@@ -173,7 +174,7 @@ document.querySelector(".uul1").innerHTML+=html1;
       
     }
 }
-   
+   */
 }
 socket.on('invite-request',function(data){
     console.log("Invite by socket id:"+data.received_from)
