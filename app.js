@@ -64,7 +64,7 @@ io.on('connection',function(socket){
 
         socket.on('accept',function(data){
             data.accepted_by=socket.id
-             io.to(socket.id).emit("accepted",data)
+             io.to(socket.id).to(data.received_from).emit("accepted",data)
         })
 
         socket.on("private-message",function(data){
