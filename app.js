@@ -71,6 +71,11 @@ io.on('connection',function(socket){
         })
 
         socket.on('decline',function(data){
+            var i = array4.indexOf(data.to)
+            var j= array4.indexOf(socket.id)
+            array4.splice(i,1)
+            array4.splice(j,1)
+            
             io.to(data.to).emit("declined-accepted",data)
         })
 
