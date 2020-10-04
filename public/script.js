@@ -187,7 +187,8 @@ socket.on('invite-request',function(data){
         console.log(data.received_from)
         document.getElementById("myModal2").style.display="none"
         socket.emit("decline",{
-            to:data.received_from
+            to:data.received_from,
+            sender:data.sender
         })
     }
 
