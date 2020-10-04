@@ -79,6 +79,10 @@ io.on('connection',function(socket){
             console.log(i+" "+j)
             array4.splice(i,1)
             array4.splice(j,1)
+            if(array4.length==1)
+            {
+                array4=[]
+            }
             console.log(array4)
 
             io.to(data.to).emit("declined-accepted",data)
