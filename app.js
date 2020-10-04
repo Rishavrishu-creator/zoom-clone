@@ -56,6 +56,8 @@ io.on('connection',function(socket){
         })
         
         socket.on('come-privately',function(data){
+            console.log(array4)
+            console.log(data.sender)
             if(array4.includes(data.sender))
             {
                 io.to(socket.id).emit("rejected",data)
