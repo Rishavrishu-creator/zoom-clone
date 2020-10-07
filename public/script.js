@@ -167,6 +167,7 @@ function startChat(a){
   })
 socket.on("finish-loading",function(data){
     document.getElementById("loader").style.display="none"
+    document.getElementById("waiting").style.display="none"
 })
 
 socket.on('invite-request',function(data){
@@ -209,6 +210,7 @@ socket.on('accepted',function(data){
     document.querySelector(".uul1").innerHTML=""
     document.getElementById("myModal1").style.display="block"
     document.getElementById("loader").style.display="none"
+    document.getElementById("waiting").style.display="none"
     accepted_by = data.to//person who accepted my request
     waiting_person = data.accepted_by//person who is waiting for acceptance/rejection
     var name=''
