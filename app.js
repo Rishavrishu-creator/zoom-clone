@@ -83,7 +83,7 @@ io.on('connection',function(socket){
             remove = [i,j]; 
               
             for (var i1 = remove.length -1; i1 >= 0; i1--) 
-                arr.splice(remove[i1], 1); 
+                array4.splice(remove[i1], 1); 
             if(array4.length==1)
             {
                 array4=[]
@@ -151,7 +151,7 @@ io.on('connection',function(socket){
                remove = [i,j]; 
               
                for (var i1 = remove.length -1; i1 >= 0; i1--) 
-                   arr.splice(remove[i1], 1); 
+                   array4.splice(remove[i1], 1); 
                if(array4.length==1)
                {
                    array4=[]
@@ -171,7 +171,7 @@ io.on('connection',function(socket){
             remove = [i,j]; 
               
             for (var i1 = remove.length -1; i1 >= 0; i1--) 
-                arr.splice(remove[i1], 1); 
+                array4.splice(remove[i1], 1); 
             if(array4.length==1)
             {
                 array4=[]
