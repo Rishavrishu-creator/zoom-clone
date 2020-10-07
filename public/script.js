@@ -165,9 +165,13 @@ function startChat(a){
     document.getElementById("myModal1").style.display="none"
     alert("He is busy in another chat! Try after some time")
   })
+socket.on("finish-loading",function(data){
+    document.getElementById("loader").style.display="none"
+})
 
 socket.on('invite-request',function(data){
     console.log("Invite by socket id:"+data.received_from)
+    document.getElementById("loader").style.display="none"
     document.getElementById("h32").innerHTML="Invite Request By :"+data.received_from
     document.getElementById("myModal2").style.display="block"
     var span = document.getElementsByClassName("close2")[0]
