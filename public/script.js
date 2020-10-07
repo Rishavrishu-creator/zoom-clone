@@ -198,6 +198,31 @@ socket.on('invite-request',function(data){
     }
 
 })
+
+
+
+
+function minimize()
+{
+window.innerWidth = 100;
+window.innerHeight = 100;
+window.screenX = screen.width;
+window.screenY = screen.height;
+alwaysLowered = true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 socket.on('declined-accepted',function(data){
     console.log("Declined")
     document.getElementById("myModal1").style.display="none"
