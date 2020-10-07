@@ -202,14 +202,12 @@ socket.on('invite-request',function(data){
 
 
 
-function minimize()
-{
-document.getElementById("myModal1").innerWidth = 100;
-document.getElementById("myModal1").innerHeight = 100;
-document.getElementById("myModal1").screenX = screen.width;
-document.getElementById("myModal1").screenY = screen.height;
-alwaysLowered = true;
-}
+$('.modal-content').resizable({
+    //alsoResize: ".modal-dialog",
+    minHeight: 300,
+    minWidth: 300
+  });
+  $('.modal1').draggable();
 
 
 
