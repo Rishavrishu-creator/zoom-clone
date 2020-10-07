@@ -204,10 +204,10 @@ socket.on('invite-request',function(data){
 
 function minimize()
 {
-window.innerWidth = 100;
-window.innerHeight = 100;
-window.screenX = screen.width;
-window.screenY = screen.height;
+document.getElementById("myModal1").innerWidth = 100;
+document.getElementById("myModal1").innerHeight = 100;
+document.getElementById("myModal1").screenX = screen.width;
+document.getElementById("myModal1").screenY = screen.height;
 alwaysLowered = true;
 }
 
@@ -421,7 +421,7 @@ span1.onclick=function(){
 }
 socket.on("closed",function(data){
     document.getElementById("myModal1").style.display="none"
-    alert("Connection ended")
+    alert("Either you or stranger has diconnected")
     console.log("Connection ended")
 })
 
