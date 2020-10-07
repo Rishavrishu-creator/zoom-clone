@@ -2,9 +2,7 @@ var name;
 var array=[]
 var names = []
 var c=0;
-var arr=[]
-arr.push("124")
-console.log(arr)
+
 window.onload=function()
 {
      name = prompt("Enter your name please");
