@@ -50,7 +50,7 @@ io.on('connection',function(socket){
        
         socket.to(roomId).broadcast.emit('user-connected',roomId)
 
-    })
+    
          
         socket.on('chat-message',function(data){
             
@@ -237,7 +237,7 @@ io.on('connection',function(socket){
             console.log(roomId)
             socket.to(roomId).broadcast.emit('user-disconnected', roomId)
           })
-
+        })
 
     })
     
