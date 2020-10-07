@@ -217,6 +217,12 @@ h2{
     font-size: 28px;
     font-weight: bold;
   }
+  #close1 {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
   
   .close1:hover,
   .close1:focus {
