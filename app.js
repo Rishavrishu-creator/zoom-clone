@@ -66,6 +66,7 @@ io.on('connection',function(socket){
             {
                 array4.push(socket.id)
                 array4.push(data.sender)
+                console.log(array4)
             data.received_from=socket.id
             io.to(data.sender).emit("invite-request",data)
             }
@@ -146,6 +147,7 @@ io.on('connection',function(socket){
                {
                    array4=[]
                }
+               console.log(array4)
                io.to(socket.id).to(second).emit("closed",data)
                
             }
@@ -160,6 +162,7 @@ io.on('connection',function(socket){
             {
                 array4=[]
             }
+            console.log(array4)
             io.to(socket.id).to(second).emit("closed",data)
             
            }
