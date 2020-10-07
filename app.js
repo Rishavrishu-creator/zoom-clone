@@ -80,6 +80,10 @@ io.on('connection',function(socket){
             console.log(i+" "+j)
             array4.splice(i,1)
             array4.splice(j,1)
+            remove = [i,j]; 
+              
+            for (var i1 = remove.length -1; i1 >= 0; i1--) 
+                arr.splice(remove[i1], 1); 
             if(array4.length==1)
             {
                 array4=[]
@@ -143,6 +147,11 @@ io.on('connection',function(socket){
                var j=array4.indexOf(second)
                array4.splice(i,1)
                array4.splice(j,1)
+
+               remove = [i,j]; 
+              
+               for (var i1 = remove.length -1; i1 >= 0; i1--) 
+                   arr.splice(remove[i1], 1); 
                if(array4.length==1)
                {
                    array4=[]
@@ -158,6 +167,11 @@ io.on('connection',function(socket){
             var j=array4.indexOf(second)
             array4.splice(i,1)
             array4.splice(j,1)
+
+            remove = [i,j]; 
+              
+            for (var i1 = remove.length -1; i1 >= 0; i1--) 
+                arr.splice(remove[i1], 1); 
             if(array4.length==1)
             {
                 array4=[]
