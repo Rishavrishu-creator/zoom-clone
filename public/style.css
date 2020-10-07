@@ -231,6 +231,13 @@ h2{
     cursor: pointer;
   }
 
+  #close1:hover,
+  #close1:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 
 
 
