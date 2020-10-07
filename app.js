@@ -71,7 +71,7 @@ io.on('connection',function(socket){
                 console.log(array4)
             data.received_from=socket.id
             io.to(data.sender).emit("invite-request",data)
-            io.to(socket.id).emit("finish-loading",data)
+            
             }
 
         })
