@@ -49,6 +49,8 @@ io.on('connection',function(socket){
         socket.join(roomId);
        
         socket.to(roomId).broadcast.emit('user-connected',roomId)
+
+    })
          
         socket.on('chat-message',function(data){
             
@@ -205,7 +207,7 @@ io.on('connection',function(socket){
        })
 
 
-        socket.on('disconnect', () => {
+       socket.on('disconnect', () => {
             var array1=[]
             var j=0;
             
@@ -235,10 +237,10 @@ io.on('connection',function(socket){
             console.log(roomId)
             socket.to(roomId).broadcast.emit('user-disconnected', roomId)
           })
-          
+
+
     })
     
-})
 
 server.listen(process.env.PORT||9000)
 
