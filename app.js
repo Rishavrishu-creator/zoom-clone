@@ -108,8 +108,7 @@ io.on('connection',function(socket){
                 {
                     console.log(socket.id)
                     io.to(array3[i]["second"]).to(socket.id).emit("message-sent",data);
-                    
-                    
+                                        
                 }
                 if(array3[i]["second"]==socket.id)
                 {
@@ -139,20 +138,28 @@ io.on('connection',function(socket){
             if(socket.id==array3[i]["first"])
             {
                var second = array3[i]["second"]
-               var i=array4.indexOf(socket.id)
+               var i=array4.indexOf(array3[i]["first"])
                var j=array4.indexOf(second)
                array4.splice(i,1)
                array4.splice(j,1)
+               if(array4.length==1)
+               {
+                   array4=[]
+               }
                io.to(socket.id).to(second).emit("closed",data)
                
             }
            if(socket.id==array3[i]["second"])
            {
             var second = array3[i]["first"]
-            var i=array4.indexOf(socket.id)
+            var i=array4.indexOf(array3[i]["second"])
             var j=array4.indexOf(second)
             array4.splice(i,1)
             array4.splice(j,1)
+            if(array4.length==1)
+            {
+                array4=[]
+            }
             io.to(socket.id).to(second).emit("closed",data)
             
            }
