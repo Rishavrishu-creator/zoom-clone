@@ -6,6 +6,8 @@ video{
 *{
     margin: 0%;
     padding: 0%;
+    overflow-y: hidden;
+    overflow-x: hidden;
     box-sizing: border-box;
 }
 
