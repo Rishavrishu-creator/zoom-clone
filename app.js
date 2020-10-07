@@ -105,6 +105,7 @@ io.on('connection',function(socket){
             })
             data.accepted_by=socket.id
              io.to(socket.id).emit("accepted",data)
+             io.to(data.to).emit("finish-loading",data)
         })
 
         socket.on("private-message",function(data){
